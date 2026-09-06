@@ -4,64 +4,50 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fablecord"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A dependency-free async Discord API library and bot framework"
 readme = "README.md"
 requires-python = ">=3.13"
-license = { text = "MIT" }
-keywords = ["discord", "bot", "framework", "async", "postgres"]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "cqlsh" }]
+maintainers = [{ name = "cqlsh" }]
+keywords = ["discord", "discord-api", "bot", "async", "asyncio", "framework"]
 dependencies = []
 
-[project.optional-dependencies]
-dev = ["ruff>=0.12.0"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Communications :: Chat",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+
+[project.urls]
+Homepage = "https://github.com/cqlsh/Fablecord.py"
+Repository = "https://github.com/cqlsh/Fablecord.py"
+Issues = "https://github.com/cqlsh/Fablecord.py/issues"
+Changelog = "https://github.com/cqlsh/Fablecord.py/blob/master/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/fablecord/__version__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fablecord"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/fablecord", "README.md"]
-
-[tool.ruff]
-line-length = 110
-target-version = "py313"
-src = ["src"]
-
-[tool.ruff.lint]
-select = [
-    "F",
-    "E",
-    "W",
-    "I",
-    "N",
-    "UP",
-    "ASYNC",
-    "B",
-    "C4",
-    "PIE",
-    "RET",
-    "SIM",
-    "TID",
-    "PERF",
-    "RUF"
+include = [
+    "src/fablecord",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
 ]
-ignore = [
-    "E501",
-    "B008",
-    "RUF001",
-    "RUF002",
-    "RUF003",
-    "N818"
-]
-
-[tool.ruff.lint.isort]
-known-first-party = ["fablecord"]
-combine-as-imports = true
-required-imports = ["from __future__ import annotations"]
-
-[tool.ruff.lint.flake8-tidy-imports]
-ban-relative-imports = "parents"
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-skip-magic-trailing-comma = true
