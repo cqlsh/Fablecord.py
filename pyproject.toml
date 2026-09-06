@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fablecord"
+version = "0.1.0"
+description = "A dependency-free async Discord API library and bot framework"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+keywords = ["discord", "bot", "framework", "async", "postgres"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.12.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fablecord"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/fablecord", "README.md"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py313"
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "F",
+    "E",
+    "W",
+    "I",
+    "N",
+    "UP",
+    "ASYNC",
+    "B",
+    "C4",
+    "PIE",
+    "RET",
+    "SIM",
+    "TID",
+    "PERF",
+    "RUF"
+]
+ignore = [
+    "E501",
+    "B008",
+    "RUF001",
+    "RUF002",
+    "RUF003",
+    "N818"
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["fablecord"]
+combine-as-imports = true
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "parents"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true
