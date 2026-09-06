@@ -36,7 +36,7 @@ classifiers = [
 Homepage = "https://github.com/cqlsh/Fablecord.py"
 Repository = "https://github.com/cqlsh/Fablecord.py"
 Issues = "https://github.com/cqlsh/Fablecord.py/issues"
-Changelog = "https://github.com/cqlsh/Fablecord.py/blob/master/CHANGELOG.md"
+Changelog = "https://github.com/cqlsh/Fablecord.py/blob/main/CHANGELOG.md"
 
 [tool.hatch.version]
 path = "src/fablecord/__version__.py"
